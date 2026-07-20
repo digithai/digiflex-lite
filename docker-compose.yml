@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo:7
+    container_name: digiflex-lite-db
+    restart: unless-stopped
+    volumes:
+      - digiflex_lite_data:/data/db
+
+  server:
+    build: ./digiflex-lite-server
+    container_name: digiflex-lite-server
+    restart: unless-stopped
+    env_file: ./.env
+    depends_on: [db]
+    ports: ["${PORT:-7088}:${PORT:-7088}"]
+
+  client:
+    build:
+      context: ./digiflex-lite-client
+      args:
+        VITE_BASE_URL: ${VITE_BASE_URL:-http://localhost:7088}
+    container_name: digiflex-lite-client
+    restart: unless-stopped
+    depends_on: [server]
+    ports: ["7091:7091"]
+
+volumes:
+  digiflex_lite_data:

@@ -1,0 +1,61 @@
+#root {
+  width: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+  font-size: 12px
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey-dark);  /* Dark thumb */
+  border-radius: var(--button-radius);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;        /* Makes it 2-4px wide */
+  scrollbar-color: var(--grey-dark) transparent;  /* Dark thumb */
+}
